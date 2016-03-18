@@ -1,0 +1,148 @@
+<head>
+    <title>JustMedia_Demo</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+
+<div id="options" class="ui-widget-content">
+    <div id="city-cont" class="text-center">
+        <h2>City</h2>
+        <select id='city' class="selectpicker" onchange="updateCity()">
+            <optgroup label="City">
+                <option value="sf">San Francisco</option>
+                <option value="au">Austin</option>
+            </optgroup>
+        </select>
+    </div>
+    <div id="page-cont" class="text-center">
+        <h2>Page</h2>
+        <select id='page' class="selectpicker" onchange="updatePage()">
+            <optgroup label="Page">
+                <option value="home">Home</option>
+                <option value="blog">Blog</option>
+                <option value="do">What We Do</option>
+                <option value="contact">Contact</option>
+            </optgroup>
+        </select>
+    </div>
+</div>
+
+<div id="container" onclick="bgClicked()">
+    <img id="bg_img"/>
+    <div id="ad_cont"></div>
+</div>
+
+<script>
+    var ready = false;
+    var city, page, c, p;
+    var bg, ad_cont;
+    var clickLoc;
+
+    function setStyle(id, prop, value) {
+
+        var style = document.getElementById(id).style;
+
+        if (prop == "width") {
+            return style.width = value + "px";
+        }
+        else if (prop == "height") {
+            return style.height = value + "px";
+        }
+        else if (prop == "left") {
+            return style.left = value + "px";
+        }
+        else if (prop == "src") {
+            return style.src = value;
+        }
+        else if (prop == "margin-top") {
+            return style.marginTop = value + "px";
+        }
+        else {
+            return style;
+        }
+    }
+    function whichAd(city, page) {
+        if (page == 'contact') {
+            clickLoc = 'website/contact/index.html';
+            return "tags/" + city + "_contact.html";
+        }
+        else if (page == 'blog') {
+            clickLoc = 'website/blog/index.html';
+            return "tags/" + city + "_blog.html";
+        }
+        else if (page == 'do') {
+            clickLoc = 'website/what-we-do/index.html';
+            return "tags/" + city + "_do.html";
+        }
+        else if (page == 'home') {
+            clickLoc = 'website/index.html';
+            return "tags/" + city + "_geeks.html";
+        }
+        else {
+            return "tags/sf_geeks.html";
+        }
+    }
+    function loadRetarget(){
+
+        if ((sessionStorage.getItem('pageVisited')) != null){
+            page = sessionStorage.getItem('pageVisited');
+            for (var i, j= 0; i = p.options[j]; j++){
+                if (i.value == page ){
+                    p.selectedIndex = j;
+                    break;
+                }
+            }
+        }
+        $(ad_cont).load(whichAd(city,page));
+    }
+
+    function updateCity() {
+        city = c.options[c.selectedIndex].value;
+        bg.src = 'images/bg_' + city + '.png';
+        $(ad_cont).load(whichAd(city,page));
+    }
+
+    function bgClicked(){
+        window.location.href = clickLoc;
+    }
+
+    function updatePage() {
+        page = p.options[p.selectedIndex].value;
+        $(ad_cont).load(whichAd(citls
+        y,page));
+    }
+
+    $(document).ready(function () {
+
+        c = document.getElementById('city');
+        p = document.getElementById('page');
+        p.options[p.selectedIndex].value;
+        bg = document.getElementById('bg_img');
+        ad_cont = document.getElementById('ad_cont');
+
+        city = c.options[c.selectedIndex].value;
+        page = p.options[p.selectedIndex].value;
+
+        bg.src = 'images/bg_' + city + '.png';
+
+
+
+        $("#bg_img").load(function () {
+            setStyle('container', 'width', bg.width);
+            setStyle('container', 'height', bg.height);
+
+            loadRetarget();
+            $('#options').draggable();
+
+
+        });
+    });
+
+
+</script>
+
+</body>

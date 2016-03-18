@@ -1,0 +1,27 @@
+
+/*iPhone 6 and iPhone 6+ portrait and landscape*/
+@media only screen and (max-device-width: 640px), only screen and (max-device-width: 667px), only screen and (max-width: 480px){ 
+  #bg_img {
+          content: url("bg_img.png"); 
+    }
+  }
+
+/*iPhone 6 and iPhone 6+ portrait*/
+@media only screen and (max-device-width: 640px), only screen and (max-device-width: 667px), only screen and (max-width: 480px) and (orientation : portrait){ 
+  #bg_img {
+          content: url("bg_img.png"); 
+    }
+  }
+
+/*iPhone 6 and iPhone 6+ landscape*/
+@media only screen and (max-device-width: 640px), only screen and (max-device-width: 667px), only screen and (max-width: 480px) and (orientation : landscape){ 
+  #bg_img {
+          content: url("bg_img.png"); 
+    }
+  }
+/* Retina iPad in portrait & landscape */
+@media only screen and (min-device-width: 1536px) and (max-device-width: 2048px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio: 2) {
+  #bg_img {
+    content: url("bg_img_768px.png"); 
+   }
+}

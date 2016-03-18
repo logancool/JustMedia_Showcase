@@ -1,0 +1,201 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+    text-align: center;
+
+}
+
+#bg_img_1::after, 
+#bg_img_2::after,
+#bg_img_3::after,
+#bg_img_4::after,
+#bg_img_5::after,
+#bg_img_6::after,
+#bg_img_7::after
+
+{
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    top:0;
+    right: 0;
+    width:100%;
+    overflow: hidden;
+    z-index: -1;
+    overflow: hidden;
+    max-width: 1425px;
+    min-width: 1425px;
+    content: url("bg_img.png");
+}
+
+#bg_img_2::after {
+    content: url("bg_img_austin.png");
+}
+#bg_img_6::after {
+    content: url("bg_img_sf.png");
+}
+
+#toggle-button {
+    position: absolute;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    top: 0px;
+    left:0;
+    right:0;
+    width:1425px;
+    height:80px;
+}
+
+
+#ft_tag_1,
+#ft_tag_2,
+#ft_tag_3,
+#ft_tag_4,
+#ft_tag_5,
+#ft_tag_6,
+#ft_tag_7
+
+{
+    position: relative;
+    width: 0px;
+    height: 0px;
+    left: 1007px;
+    top: 270px;
+    z-index: 1000;
+}
+
+/*   INSERT THIS BELOW CSS */
+.slideout-menu {
+    background: #444444;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 0;
+    width: 350px;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    display: none;
+}
+.slideout-panel {
+    position:relative;
+    z-index: 1;
+}
+.slideout-open,
+.slideout-open .slideout-panel {
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+}
+.slideout-open .slideout-menu {
+    display: block;
+}
+
+#tag_container {
+    position: relative;
+    margin:auto;
+    width: 1425px;
+    height: 7275px;
+}
+#click_bg {
+    z-index: 100;
+}
+
+input {
+    width: 310px;
+    height:30px;
+    margin: 20px 20px 20px 20px;
+    text-indent: 20px;
+    color: #a9a8a4;
+    border:1px solid #3c3b40;
+    border-radius: 3px;
+    background: #5e5e5e;
+}
+div.link-list {
+    width: 350px;
+    min-height: 100%;
+    padding: 50px 0 0 0;
+    color: white;
+    float: left;
+    position: relative;
+    overflow-x: scroll;
+    background: #444444 url('http://www.flashtalking.net/utilities/adfiledisplayhtml/images/flashtalking.png') no-repeat;
+    background-position: 60% 2%;
+    z-index: 20;
+}
+div.link-list h1 {
+    margin:0 0 0 20px;
+    font-size: 25px;
+}
+div.link-list ul {
+    color: #CCCCCC;
+    margin: 0 20px;
+    padding:10px 0 20px 0;
+    list-style: none;
+}
+div.link-list ul li {
+    margin: 2px 0;
+    line-height: 1.5;
+    cursor: pointer;
+}
+div.link-list ul li:hover {
+    color: #ff1d8e;
+}
+div.link-list ul li.active {
+    color: #ff1d8e;
+    text-decoration: none;
+}
+div.link-list ul li.active::before {
+    padding-right: 3px;
+    color: #ff1d8e;
+}
+
+div#preview iframe {
+    width:100%;
+    height:100%;
+    border:0;
+}
+
+/*iPhone 6 and iPhone 6+ portrait and landscape*/
+@media only screen and (max-device-width: 640px), only screen and (max-device-width: 667px), only screen and (max-width: 480px){ 
+  #page_content {
+        width:400px;
+  }
+  #bg_img_1 {
+        max-width:400px;
+        width:100%;
+    }
+  }
+/* Retina iPad in portrait & landscape */
+@media only screen and (min-device-width: 1536px) and (max-device-width: 2048px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio: 2) {
+  #bg_img_3 {
+    max-width:100%;
+   }
+}
+/* iPad 1 and 2 in portrait & landscape */
+@media only screen  and (min-device-width : 768px) and (max-device-width : 1024px) and (-webkit-min-device-pixel-ratio: 1){ 
+    #page_content {
+        width: 768px;
+    }
+    #bg_img_3 {
+        max-width:100%;
+    }
+    #def_tag {
+        left:27px;
+        top: 90px;
+    }
+    #ft_tag_1 {
+        width:60px;
+    }
+    #ft_tag_2 {
+        width:45px;
+    }
+    #ft_tag_3 {
+        width:728px;
+        top: 140px;
+    }
+
+}
